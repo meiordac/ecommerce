@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'comoencasa'
+    'catalog.apps.CatalogConfig',
+    'comoencasa.apps.ComoencasaConfig',
 ]
 
 MIDDLEWARE_CLASSES = [
