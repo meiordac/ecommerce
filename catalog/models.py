@@ -31,7 +31,7 @@ class Product(models.Model):
     slug = models.SlugField(max_length=255, unique=True, help_text='Unique value for product page URL, created from name.')
     brand = models.CharField(max_length=50)
     sku= models.CharField(max_length=50)
-    price = models.DecimalField(max_digits=15, decimal_places=2)
+    price = models.DecimalField(max_digits=15, decimal_places=0)
     old_price = models.DecimalField(max_digits=15, decimal_places=2, blank=True, default=0.00)
     image = models.CharField(max_length=50)
     is_active=models.BooleanField(default = True)

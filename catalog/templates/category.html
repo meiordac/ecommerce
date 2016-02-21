@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block site_wrapper %}
+ 
+            <div class="col-md-9">
+            <div class="page-header">
+            <h1>{{ category.name }}: <small>{{ category.description}}</small></h1>
+            </div>
+                <div class="row">
+                {% for p in products %}
+                    <div class="col-sm-4 col-lg-4 col-md-4">
+                        <div class="thumbnail">
+                              <img class="featurette-image img-responsive center-block" data-src="holder.js/320x150/auto" alt="Generic placeholder image">
+                            <div class="caption">
+                                <h4 class="pull-right">${{ p.price }}</h4>
+                                <h4><a href="/product/{{ p.slug }}">{{ p.name }}</a>
+                                </h4>
+                                <p>{{ p.description }}.</p>
+                            </div>
+                            <div class="ratings">
+                                <p class="pull-right">12 reviews</p>
+                                <p>
+                                    <span class="glyphicon glyphicon-star"></span>
+                                    <span class="glyphicon glyphicon-star"></span>
+                                    <span class="glyphicon glyphicon-star"></span>
+                                    <span class="glyphicon glyphicon-star"></span>
+                                    <span class="glyphicon glyphicon-star-empty"></span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+
+
+        </div>
+    <!-- /.container -->
+{% endblock %}
