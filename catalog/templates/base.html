@@ -30,8 +30,17 @@
     <div class="navbar-wrapper">
       <div class="container">
 
-    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
           <div class="container">
+
+
+    <div class="pull-right">
+    <a href="{% url 'cart.views.show_cart' %}">
+    <i class="glyphicon glyphicon-shopping-cart"></i> Cart
+    </a>
+    </div>
+  
+
             <div class="navbar-header">
               <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
                 <span class="sr-only">Toggle navigation</span>

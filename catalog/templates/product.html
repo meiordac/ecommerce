@@ -8,11 +8,23 @@
                 <img class="featurette-image img-responsive center-block" data-src="holder.js/800x300/auto" alt="Generic placeholder image">
                     <div class="caption-full">
                         <h4 class="pull-right">${{ product.price }}</h4>
-                        <h4><a href="#">{{product.name}}</a>
+                        <h4><a href="product/{{ p.slug }}">{{product.name}}</a>
                         </h4>
                         <p>Vendedor: <em>{{product.brand}}</em></p>
                         <p>{{ product.description}}</p>
+
+                    <form method="post" action="." class="cart"> {% csrf_token %}
+                    {{ form.as_p }}
+                    
+                    <button type="submit" class="btn btn-primary" value="Add To Cart" name="submit" alt="Add To Cart" ><span class="glyphicon glyphicon-shopping-cart"></span> Agregar al carro
+                    </button>
+                    </form>
+
                     </div>
+
+
+       
+                    <br />
                     <div class="ratings">
                         <p class="pull-right">3 reviews</p>
                         <p>
@@ -24,8 +36,9 @@
                             4.0 stars
                         </p>
                     </div>
-                </div>
 
+                    <div class="cb"></div>
+                </div>
                 <div class="well">
 
                     <div class="text-right">
