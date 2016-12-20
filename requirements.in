@@ -1,0 +1,6 @@
+# requirements.in
+Django
+Dj-database-url
+Whitenoise
+Gunicorn
+Psycopg2
