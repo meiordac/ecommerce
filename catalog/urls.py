@@ -23,6 +23,5 @@ urlpatterns = [
     # ex: /catalog/product/lasagna/
     url(r'^product/(?P<product_slug>[-\w]+)/$', views.show_product, name='show_product'),
     # ex: /catalog/category/comida/
-    url(r'^category/(?P<category_slug>[-\w]+)/$', views.show_category, name='show_category'),
-
-]
+    url(r'^category/(?P<category_slug>[-\w]+)/$', views.show_category, name='show_category')
+    ]

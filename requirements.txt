@@ -4,8 +4,8 @@
 #
 #    pip-compile --output-file requirements.txt requirements.in
 #
-Dj-database-url==0.4.1
-Django==1.10.4
-Gunicorn==19.6.0
-Psycopg2==2.6.2
-Whitenoise==3.2.2
+dj-database-url==0.4.1
+django==1.10.4
+gunicorn==19.6.0
+psycopg2==2.6.2
+whitenoise==3.2.2
