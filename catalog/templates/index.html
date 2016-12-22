@@ -34,7 +34,7 @@
 <div class="container">
     <div class="row">
 
-        {% for p in products %}
+        {% for p in products|dictsort:"name"|slice:":6" %}
         <div class="col-sm-4 col-lg-4 col-md-4">
             <div class="thumbnail">
                 <img class="featurette-image img-responsive center-block" src="{{ p.image }}">
@@ -42,7 +42,7 @@
                     <h4 class="pull-right">${{ p.price }}</h4>
                     <h4><a href="product/{{ p.slug }}">{{ p.name }}</a>
                     </h4>
-                    <p>{{ p.description }}.</p>
+                    <p>{{ p.description |truncatechars:100 }}</p>
                 </div>
                 <div class="ratings">
                     <p class="pull-right">12 reviews</p>
