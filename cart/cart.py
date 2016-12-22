@@ -1,46 +1,49 @@
-from .models import CartItem
-from catalog.models import Product
+from decimal import Decimal
 from django.shortcuts import get_object_or_404
-from django.http import HttpResponseRedirect
-from decimal import *
-# return all items from the current user's cart
+
+from catalog.models import Product
+from .models import CartItem
+
 def get_cart_items(request):
-	return CartItem.objects.filter(cart_session=request.session.session_key)
+    """ return all items from the current user's cart """
+    return CartItem.objects.filter(cart_session=request.session.session_key)
 
-# add an item to the cart
 def add_to_cart(request):
-	postdata = request.POST.copy()
-	# get product slug from post data, return blank if empty
-	product_slug = postdata.get('product_slug','')
-	# get quantity added, return 1 if empty
-	quantity = postdata.get('quantity',1)
-	# fetch the product or return a missing page error
-	p = get_object_or_404(Product, slug=product_slug)
-	#get products in cart
-	cart_products = get_cart_items(request)
-	product_in_cart = False
-	# check to see if item is already in cart
-	for cart_item in cart_products:
-		if cart_item.product.id == p.id:
-			# update the quantity if found
-			cart_item.augment_quantity(quantity)
-			product_in_cart = True
+    """ add an item to the cart """
+    postdata = request.POST.copy()
+    # get product slug from post data, return blank if empty
+    product_slug = postdata.get('product_slug', '')
+    # get quantity added, return 1 if empty
+    quantity = postdata.get('quantity', 1)
+    # fetch the product or return a missing page error
+    product = get_object_or_404(Product, slug=product_slug)
+    #get products in cart
+    cart_products = get_cart_items(request)
+    product_in_cart = False
+    # check to see if item is already in cart
+    for cart_item in cart_products:
+        if cart_item.product.id == product.id:
+            # update the quantity if found
+            cart_item.augment_quantity(quantity)
+            product_in_cart = True
 
-	if not product_in_cart:
-	# create and save a new cart item
-		ci = CartItem()
-		ci.product = p
-		ci.quantity = quantity
-		ci.cart_session=request.session.session_key
-		ci.save()
-# returns the total number of items in the user's cart
+    if not product_in_cart:
+    # create and save a new cart item
+        cartitem = CartItem()
+        cartitem.product = product
+        cartitem.quantity = quantity
+        cartitem.cart_session = request.session.session_key
+        cartitem.save()
+
 def cart_distinct_item_count(request):
-	return get_cart_items(request).count()
+    """ returns the total number of items in the user's cart """
+    return get_cart_items(request).count()
 
 def cart_subtotal(request):
-	cart_products = get_cart_items(request)
-	subtotal=Decimal('0')
+    """ Returns cart subtotal"""
+    cart_products = get_cart_items(request)
+    subtotal = Decimal('0')
 
-	for cp in cart_products:
-		subtotal+=cp.total()
-	return subtotal
+    for cartproduct in cart_products:
+        subtotal += cartproduct.total()
+    return subtotal

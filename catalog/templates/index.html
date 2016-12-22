@@ -1,65 +1,62 @@
-{% extends "base.html" %}
-{% block site_wrapper %}
- 
-            <div class="col-md-9">
+{% extends "base.html" %} {% block site_wrapper %}
 
-                <div class="row carousel-holder">
+<div class="row carousel-holder">
 
-                    <div class="col-md-12">
-                        <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-                            <ol class="carousel-indicators">
-                                <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-                                <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-                                <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-                            </ol>
-                            <div class="carousel-inner">
-                                <div class="item active">
-                                    <img class="slide-image" data-src="holder.js/800x300/auto" alt="Generic placeholder image">
-                                </div>
-                                <div class="item">
-                                    <img class="slide-image" data-src="holder.js/800x300/auto" alt="Generic placeholder image">
-                                </div>
-                                <div class="item">
-                                    <img class="slide-image" data-src="holder.js/800x300/auto" alt="Generic placeholder image">
-                                </div>
-                            </div>
-                            <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
-                                <span class="glyphicon glyphicon-chevron-left"></span>
-                            </a>
-                            <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
-                                <span class="glyphicon glyphicon-chevron-right"></span>
-                            </a>
-                        </div>
-                    </div>
-
+    <div class="col-md-12">
+        <div id="carousel-foods" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-target="#carousel-foods" data-slide-to="0" class="active"></li>
+                <li data-target="#carousel-foods" data-slide-to="1"></li>
+                <li data-target="#carousel-foods" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner">
+                <div class="item active foodimg">                 
+                    <img class="foodimg" src="http://www.limonymar.cl/img/banner1.jpg" alt="...">                
                 </div>
-
-                <div class="row">
-
-                {% for p in products %}
-                    <div class="col-sm-4 col-lg-4 col-md-4">
-                        <div class="thumbnail">
-                              <img class="featurette-image img-responsive center-block" data-src="holder.js/320x150/auto" alt="Generic placeholder image">
-                            <div class="caption">
-                                <h4 class="pull-right">${{ p.price }}</h4>
-                                <h4><a href="product/{{ p.slug }}">{{ p.name }}</a>
-                                </h4>
-                                <p>{{ p.description }}.</p>
-                            </div>
-                            <div class="ratings">
-                                <p class="pull-right">12 reviews</p>
-                                <p>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star-empty"></span>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    {% endfor %}
+                <div class="item foodimg">
+                   <img class="foodimg" src="http://www.limonymar.cl/img/banner2.jpg" alt="...">
                 </div>
+                <div class="item foodimg">
+                    <img class="foodimg" src="http://suitelife.com/blog/wp-content/uploads/2015/08/327013.jpg" alt="...">
+                </div>
+            </div>
+            <a class="left carousel-control" href="#carousel-foods" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left"></span>
+            </a>
+            <a class="right carousel-control" href="#carousel-foods" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right"></span>
+            </a>
         </div>
-    <!-- /.container -->
+    </div>
+
+</div>
+
+<div class="container">
+    <div class="row">
+
+        {% for p in products %}
+        <div class="col-sm-4 col-lg-4 col-md-4">
+            <div class="thumbnail">
+                <img class="featurette-image img-responsive center-block" src="{{ p.image }}">
+                <div class="caption">
+                    <h4 class="pull-right">${{ p.price }}</h4>
+                    <h4><a href="product/{{ p.slug }}">{{ p.name }}</a>
+                    </h4>
+                    <p>{{ p.description }}.</p>
+                </div>
+                <div class="ratings">
+                    <p class="pull-right">12 reviews</p>
+                    <p>
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star-empty"></span>
+                    </p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
 {% endblock %}
