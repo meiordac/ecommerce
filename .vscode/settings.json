@@ -1,4 +1,6 @@
 // Place your settings in this file to overwrite default and user settings.
 {
     "python.linting.pylintArgs": ["--load-plugins", "pylint_django"]
+,
+"python.formatting.provider": "autopep8"
 }

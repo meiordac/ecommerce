@@ -1,5 +1,4 @@
 {% extends "base.html" %} {% block site_wrapper %}
-
 <div class="row carousel-holder">
 
     <div class="col-md-12">
@@ -31,7 +30,6 @@
 
 </div>
 
-<div class="container">
     <div class="row">
 
         {% for p in products|dictsort:"name"|slice:":6" %}
@@ -58,5 +56,4 @@
         </div>
         {% endfor %}
     </div>
-</div>
 {% endblock %}
