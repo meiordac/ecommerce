@@ -1,199 +1,492 @@
 [
 {
-  "model": "catalog.category",
-  "pk": 1,
-  "fields": {
-    "name": "Foods",
-    "slug": "foods",
-    "description": "Food is any substance consumed to provide nutritional support for the body. It is usually of plant or animal origin, and contains essential nutrients, such as carbohydrates, fats, proteins, vitamins, or minerals. The substance is ingested by an organism and assimilated by the organism's cells to provide energy, maintain life, or stimulate growth.",
-    "is_active": true,
-    "meta_keywords": "food",
-    "meta_description": "foods",
-    "created_at": "2016-02-13T18:57:22.942Z",
-    "updated_at": "2016-12-22T13:19:17.296Z"
-  }
+    "model": "auth.user",
+    "pk": 1,
+    "fields": {
+        "password": "pbkdf2_sha256$30000$SkBiXdMDT6T0$5gHdn/3EDCQIb+7tkOf6y8TKolRKX1KJjOPeQ0ftFX0=",
+        "last_login": "2016-12-22T14:10:42.583Z",
+        "is_superuser": true,
+        "username": "meiordac",
+        "first_name": "",
+        "last_name": "",
+        "email": "matias.iordache@gmail.com",
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2016-02-13T18:43:03Z",
+        "groups": [],
+        "user_permissions": []
+    }
 },
 {
-  "model": "catalog.category",
-  "pk": 2,
-  "fields": {
-    "name": "Drinks",
-    "slug": "drinks",
-    "description": "drink or beverage is a liquid intended for human consumption. In addition to their basic function of satisfying thirst, drinks play important roles in human culture. Common types of drinks include plain water, milk, juices, coffee, tea, and soft drinks. In addition, alcoholic drinks such as wine, beer, and liquor, which contain the drug ethanol, have been part of human culture and development for 8,000 years.",
-    "is_active": true,
-    "meta_keywords": "drinks",
-    "meta_description": "beber",
-    "created_at": "2016-02-20T13:53:03.226Z",
-    "updated_at": "2016-12-22T13:18:12.319Z"
-  }
+    "model": "sessions.session",
+    "pk": "ekilbvyxi6xqx6zzk58xdz086igz0917",
+    "fields": {
+        "session_data": "NDFhY2U4Y2ZjOGIxZDhjZTlhODFhZjM2MTE4NmUzMzQwMGM2MWRlMTp7Il9hdXRoX3VzZXJfaGFzaCI6ImU4ZjNmYzAwNTY4NmE3ZDZlZjUzNDExODNmNzY0ZmUzZTM3NzYzOTUiLCJ0ZXN0Y29va2llIjoid29ya2VkIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2lkIjoiMSJ9",
+        "expire_date": "2017-01-05T15:34:57.463Z"
+    }
 },
 {
-  "model": "catalog.product",
-  "pk": 1,
-  "fields": {
-    "name": "Lasa\u00f1a",
-    "slug": "lasagna",
-    "brand": "Se\u00f1ora Monica",
-    "sku": "4",
-    "price": "1000",
-    "old_price": "0.00",
-    "image": "lasagna",
-    "is_active": true,
-    "is_bestseller": false,
-    "is_featured": false,
-    "quantity": 5,
-    "description": "Deliciosa lasa\u00f1a con carne y queso",
-    "meta_keywords": "italian",
-    "meta_description": "Italian Food really fresh",
-    "created_at": "2016-02-13T18:58:39.685Z",
-    "updated_at": "2016-02-13T18:58:39.685Z",
-    "categories": [
-      1
-    ]
-  }
+    "model": "catalog.category",
+    "pk": 1,
+    "fields": {
+        "name": "Spanish Food",
+        "slug": "spanish",
+        "description": "Spanish cuisine is heavily influenced by regional cuisines and the particular historical processes that shaped culture and society in those territories. Geography and climate, had great influence on cooking methods and available ingredients, and these particularities are still present in the gastronomy of the various regions that make up the country. Spanish cuisine derives from a complex history, where invasions of the country and conquests of new territories modified traditions and made new ingredients available .",
+        "is_active": true,
+        "meta_keywords": "food, spanish, europe",
+        "meta_description": "foods",
+        "created_at": "2016-02-13T18:57:22.942Z",
+        "updated_at": "2016-12-22T14:53:58.250Z"
+    }
 },
 {
-  "model": "catalog.product",
-  "pk": 2,
-  "fields": {
-    "name": "Estofado",
-    "slug": "estofado",
-    "brand": "Se\u00f1ora Tina",
-    "sku": "69",
-    "price": "2500",
-    "old_price": "0.00",
-    "image": "http://static.betazeta.com/www.sabrosia.com/up/201",
-    "is_active": true,
-    "is_bestseller": true,
-    "is_featured": true,
-    "quantity": 10,
-    "description": "Este es un estofado de pollo con papas",
-    "meta_keywords": "food,estofado,comida",
-    "meta_description": "Comidas para comer",
-    "created_at": "2016-02-20T13:53:24.795Z",
-    "updated_at": "2016-02-20T13:53:24.795Z",
-    "categories": [
-      1
-    ]
-  }
+    "model": "catalog.category",
+    "pk": 2,
+    "fields": {
+        "name": "Drinks",
+        "slug": "drinks",
+        "description": "drink or beverage is a liquid intended for human consumption. In addition to their basic function of satisfying thirst, drinks play important roles in human culture. Common types of drinks include plain water, milk, juices, coffee, tea, and soft drinks. In addition, alcoholic drinks such as wine, beer, and liquor, which contain the drug ethanol, have been part of human culture and development for 8,000 years.",
+        "is_active": true,
+        "meta_keywords": "drinks",
+        "meta_description": "beber",
+        "created_at": "2016-02-20T13:53:03.226Z",
+        "updated_at": "2016-12-22T13:18:12.319Z"
+    }
 },
 {
-  "model": "catalog.product",
-  "pk": 3,
-  "fields": {
-    "name": "Comida China",
-    "slug": "chinese",
-    "brand": "Wong Su",
-    "sku": "11",
-    "price": "3000",
-    "old_price": "0.00",
-    "image": "https://eat24-files-live.s3.amazonaws.com/cuisines",
-    "is_active": true,
-    "is_bestseller": true,
-    "is_featured": false,
-    "quantity": 100000,
-    "description": "Rica comida china para disflutal",
-    "meta_keywords": "china",
-    "meta_description": "China",
-    "created_at": "2016-02-20T13:54:51.450Z",
-    "updated_at": "2016-02-20T18:14:44.446Z",
-    "categories": [
-      1
-    ]
-  }
+    "model": "catalog.category",
+    "pk": 3,
+    "fields": {
+        "name": "Asian Food",
+        "slug": "asian",
+        "description": "Asian cuisine refers to any of several major regional cuisines, including East Asian, Southeast Asian, South Asian, Central Asian, and Middle Eastern. A cuisine is a characteristic style of cooking practices and traditions, usually associated with a specific culture. Asia, being the largest and most populous continent, is home to many cultures, many of which have their own characteristic cuisine.",
+        "is_active": true,
+        "meta_keywords": "asian, food",
+        "meta_description": "Asian food vegetables fresh",
+        "created_at": "2016-12-22T14:50:40.262Z",
+        "updated_at": "2016-12-22T14:51:56.396Z"
+    }
 },
 {
-  "model": "catalog.product",
-  "pk": 4,
-  "fields": {
-    "name": "Terremoto",
-    "slug": "terremoto",
-    "brand": "piojera",
-    "sku": "3",
-    "price": "2000",
-    "old_price": "0.00",
-    "image": "https://c1.staticflickr.com/3/2827/9138991311_afbe",
-    "is_active": true,
-    "is_bestseller": false,
-    "is_featured": true,
-    "quantity": 50,
-    "description": "rico terremoto para quedar como piojo",
-    "meta_keywords": "terremoto,chile",
-    "meta_description": "tipica bebida chilena",
-    "created_at": "2016-02-20T13:56:47.366Z",
-    "updated_at": "2016-02-20T13:56:47.366Z",
-    "categories": [
-      2
-    ]
-  }
+    "model": "catalog.category",
+    "pk": 4,
+    "fields": {
+        "name": "Italian Food",
+        "slug": "italian",
+        "description": "Italian cuisine has developed through centuries of social and political changes, with roots stretching to antiquity.\r\n\r\nSignificant changes occurred with the discovery of the New World and the introduction of potatoes, tomatoes, bell peppers and maize, now central to the cuisine but not introduced in quantity until the 18th century.",
+        "is_active": true,
+        "meta_keywords": "italian, food, europe",
+        "meta_description": "Fresh Italian food",
+        "created_at": "2016-12-22T14:51:39.850Z",
+        "updated_at": "2016-12-22T14:51:39.850Z"
+    }
 },
 {
-  "model": "catalog.product",
-  "pk": 5,
-  "fields": {
-    "name": "Paella",
-    "slug": "paella",
-    "brand": "Se\u00f1ora Ana",
-    "sku": "5",
-    "price": "2300",
-    "old_price": "0.00",
-    "image": "https://eat24-files-live.s3.amazonaws.com/cuisines",
-    "is_active": true,
-    "is_bestseller": false,
-    "is_featured": false,
-    "quantity": 25,
-    "description": "Esta es una paella con todos los mariscos",
-    "meta_keywords": "paesha",
-    "meta_description": "paella rica",
-    "created_at": "2016-02-20T18:32:30.679Z",
-    "updated_at": "2016-02-20T18:32:30.679Z",
-    "categories": [
-      1
-    ]
-  }
+    "model": "catalog.category",
+    "pk": 5,
+    "fields": {
+        "name": "Latin Food",
+        "slug": "latin",
+        "description": "Latin American cuisine refers to typical foods, beverages, and cooking styles common to many of the countries and cultures in Latin America. Latin America is a highly diverse area of land that holds various cuisines that vary from nation to nation. Some items typical of Latin American cuisine include maize-based dishes (tortillas, tamales, tacos, pupusas, arepas) and various salsas and other condiments (guacamole, pico de gallo, mole, chimichurri, chili, aji, pebre). These spices are generally what give the Latin American cuisines a distinct flavor; yet, each country of Latin America tends to use a different spice and those that share spices tend to use them at different quantities.",
+        "is_active": true,
+        "meta_keywords": "latin, america, food",
+        "meta_description": "Delicious Latin American food",
+        "created_at": "2016-12-22T14:52:57.029Z",
+        "updated_at": "2016-12-22T14:52:57.029Z"
+    }
 },
 {
-  "model": "catalog.product",
-  "pk": 6,
-  "fields": {
-    "name": "Empanada",
-    "slug": "empanada",
-    "brand": "La piojera",
-    "sku": "3243246",
-    "price": "1200",
-    "old_price": "1100.00",
-    "image": "http://mqltv.com/wp-content/uploads/2016/01/comida",
-    "is_active": true,
-    "is_bestseller": true,
-    "is_featured": true,
-    "quantity": 400,
-    "description": "An empanada) is a stuffed bread or pastry baked or fried in many countries in Spain and Latin America. The name comes from the Spanish verb empanar, meaning to wrap or coat in bread.",
-    "meta_keywords": "Empanada, Chile",
-    "meta_description": "Comida chilena",
-    "created_at": "2016-12-22T13:11:51.428Z",
-    "updated_at": "2016-12-22T13:11:51.428Z",
-    "categories": [
-      1
-    ]
-  }
+    "model": "catalog.product",
+    "pk": 1,
+    "fields": {
+        "name": "Lasa\u00f1a",
+        "slug": "lasagna",
+        "brand": "Se\u00f1ora Monica",
+        "sku": "4",
+        "price": "1000",
+        "old_price": "0.00",
+        "image": "https://barilla.azureedge.net/~/media/images/en_us/hero-images/oven-ready-lasagna.jpg",
+        "is_active": true,
+        "is_bestseller": false,
+        "is_featured": false,
+        "quantity": 5,
+        "description": "Lasagna are wide, flat-shaped pasta, and possibly one of the oldest types of pasta.[1] The word \"lasagne\", and, in many non-Italian languages, the singular \"lasagna\", can also refer to a dish made with several layers of lasagne sheets alternated with sauces and various other ingredients.",
+        "meta_keywords": "italian",
+        "meta_description": "Italian Food really fresh",
+        "created_at": "2016-02-13T18:58:39.685Z",
+        "updated_at": "2016-12-22T14:54:33.415Z",
+        "categories": [
+            4
+        ]
+    }
 },
 {
-  "model": "auth.user",
-  "pk": 1,
-  "fields": {
-    "password": "pbkdf2_sha256$30000$SkBiXdMDT6T0$5gHdn/3EDCQIb+7tkOf6y8TKolRKX1KJjOPeQ0ftFX0=",
-    "last_login": "2016-12-22T13:09:38.156Z",
-    "is_superuser": true,
-    "username": "meiordac",
-    "first_name": "",
-    "last_name": "",
-    "email": "matias.iordache@gmail.com",
-    "is_staff": true,
-    "is_active": true,
-    "date_joined": "2016-02-13T18:43:03.000Z",
-    "groups": [],
-    "user_permissions": []
-  }
+    "model": "catalog.product",
+    "pk": 2,
+    "fields": {
+        "name": "Estofado",
+        "slug": "estofado",
+        "brand": "Se\u00f1ora Tina",
+        "sku": "69",
+        "price": "2500",
+        "old_price": "0.00",
+        "image": "http://perudelights.com/wp-content/uploads/2012/11/chicken-stew.jpg",
+        "is_active": true,
+        "is_bestseller": true,
+        "is_featured": true,
+        "quantity": 10,
+        "description": "Stew is a combination of solid food ingredients that have been cooked in liquid and served in the resultant gravy. Ingredients in a stew can include any combination of vegetables (such as carrots, potatoes, onions, beans, peppers and tomatoes) or meat, especially tougher meats suitable for slow-cooking, such as beef. Poultry, sausages, and seafood are also used. While water can be used as the stew-cooking liquid, wine, stock, and beer are also common. Seasoning and flavourings may also be added. Stews are typically cooked at a relatively low temperature (simmered, not boiled), allowing flavors to mingle.",
+        "meta_keywords": "food,estofado,comida, stew, food",
+        "meta_description": "Comidas para comer",
+        "created_at": "2016-02-20T13:53:24.795Z",
+        "updated_at": "2016-12-22T14:54:28.387Z",
+        "categories": [
+            5
+        ]
+    }
+},
+{
+    "model": "catalog.product",
+    "pk": 3,
+    "fields": {
+        "name": "Chinese Food",
+        "slug": "chinese",
+        "brand": "Wong Su",
+        "sku": "11",
+        "price": "3000",
+        "old_price": "0.00",
+        "image": "http://www.szechuangardenkemah.com/wp-content/uploads/2015/04/Chinese-General-Tso-Chicken12.jpg",
+        "is_active": true,
+        "is_bestseller": true,
+        "is_featured": false,
+        "quantity": 100000,
+        "description": "Chinese cuisine includes styles originating from the diverse regions of China, as well as from Chinese people in other parts of the world including most Asian nations.",
+        "meta_keywords": "china",
+        "meta_description": "China",
+        "created_at": "2016-02-20T13:54:51.450Z",
+        "updated_at": "2016-12-22T14:54:23.572Z",
+        "categories": [
+            3
+        ]
+    }
+},
+{
+    "model": "catalog.product",
+    "pk": 4,
+    "fields": {
+        "name": "Terremoto",
+        "slug": "terremoto",
+        "brand": "piojera",
+        "sku": "3",
+        "price": "2000",
+        "old_price": "0.00",
+        "image": "http://justglobetrotting.com/wp-content/uploads/2016/01/DSC06110.jpg",
+        "is_active": true,
+        "is_bestseller": false,
+        "is_featured": true,
+        "quantity": 50,
+        "description": "Pipe\u00f1o (see above) with pineapple ice-cream served in a one-litre glass. Terremoto literally translates as 'Earthquake' since you are left with the ground (and legs) feeling very shaky. The next round usually contains the same drink though only in a glass that holds half a litre. This is called a Replica or 'aftershock'. See our article with more information about the Terremoto drink.",
+        "meta_keywords": "terremoto,chile",
+        "meta_description": "tipica bebida chilena",
+        "created_at": "2016-02-20T13:56:47.366Z",
+        "updated_at": "2016-12-22T14:54:17.884Z",
+        "categories": [
+            2
+        ]
+    }
+},
+{
+    "model": "catalog.product",
+    "pk": 5,
+    "fields": {
+        "name": "Paella",
+        "slug": "paella",
+        "brand": "Se\u00f1ora Ana",
+        "sku": "5",
+        "price": "2300",
+        "old_price": "0.00",
+        "image": "http://assets.epicurious.com/photos/5764583142e4a5ed66d1df6c/2:1/w_1260,h_630/seafood-paella.jpg",
+        "is_active": true,
+        "is_bestseller": false,
+        "is_featured": false,
+        "quantity": 25,
+        "description": "Is a Valencian rice dish with ancient roots that originated in its modern form in the mid-19th century near the Albufera lagoon on the east coast of Spain adjacent to the city of Valencia. Many non-Spaniards view paella as Spain's national dish, but most Spaniards consider it to be a regional Valencian dish. Valencians, in turn, regard paella as one of their identifying symbols.",
+        "meta_keywords": "paella",
+        "meta_description": "Best Paella ever",
+        "created_at": "2016-02-20T18:32:30.679Z",
+        "updated_at": "2016-12-22T14:54:12.720Z",
+        "categories": [
+            1
+        ]
+    }
+},
+{
+    "model": "catalog.product",
+    "pk": 6,
+    "fields": {
+        "name": "Empanada",
+        "slug": "empanada",
+        "brand": "La piojera",
+        "sku": "3243246",
+        "price": "1200",
+        "old_price": "1100.00",
+        "image": "http://mqltv.com/wp-content/uploads/2016/01/comida-chilena.jpg",
+        "is_active": true,
+        "is_bestseller": true,
+        "is_featured": true,
+        "quantity": 400,
+        "description": "An empanada) is a stuffed bread or pastry baked or fried in many countries in Spain and Latin America. The name comes from the Spanish verb empanar, meaning to wrap or coat in bread.",
+        "meta_keywords": "Empanada, Chile",
+        "meta_description": "Comida chilena",
+        "created_at": "2016-12-22T13:11:51.428Z",
+        "updated_at": "2016-12-22T14:54:06.866Z",
+        "categories": [
+            5
+        ]
+    }
+},
+{
+    "model": "cart.cartitem",
+    "pk": 9,
+    "fields": {
+        "date_added": "2016-12-22T15:00:00.837Z",
+        "quantity": 1000,
+        "product": 4,
+        "cart_session": "ekilbvyxi6xqx6zzk58xdz086igz0917"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 13,
+    "fields": {
+        "action_time": "2016-12-22T14:11:53.812Z",
+        "user": 1,
+        "content_type": 18,
+        "object_id": "6",
+        "object_repr": "Empanada",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"image\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 14,
+    "fields": {
+        "action_time": "2016-12-22T14:13:29.882Z",
+        "user": 1,
+        "content_type": 18,
+        "object_id": "5",
+        "object_repr": "Paella",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"image\", \"description\", \"meta_keywords\", \"meta_description\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 15,
+    "fields": {
+        "action_time": "2016-12-22T14:15:22.584Z",
+        "user": 1,
+        "content_type": 18,
+        "object_id": "4",
+        "object_repr": "Terremoto",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"image\", \"description\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 16,
+    "fields": {
+        "action_time": "2016-12-22T14:16:34.982Z",
+        "user": 1,
+        "content_type": 18,
+        "object_id": "1",
+        "object_repr": "Lasa\u00f1a",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"image\", \"description\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 17,
+    "fields": {
+        "action_time": "2016-12-22T14:18:06.644Z",
+        "user": 1,
+        "content_type": 18,
+        "object_id": "3",
+        "object_repr": "Chinese Food",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"name\", \"image\", \"description\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 18,
+    "fields": {
+        "action_time": "2016-12-22T14:20:03.640Z",
+        "user": 1,
+        "content_type": 18,
+        "object_id": "2",
+        "object_repr": "Estofado",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"image\", \"description\", \"meta_keywords\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 19,
+    "fields": {
+        "action_time": "2016-12-22T14:50:40.588Z",
+        "user": 1,
+        "content_type": 17,
+        "object_id": "3",
+        "object_repr": "Asian",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 20,
+    "fields": {
+        "action_time": "2016-12-22T14:51:39.850Z",
+        "user": 1,
+        "content_type": 17,
+        "object_id": "4",
+        "object_repr": "Italian Food",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 21,
+    "fields": {
+        "action_time": "2016-12-22T14:51:56.398Z",
+        "user": 1,
+        "content_type": 17,
+        "object_id": "3",
+        "object_repr": "Asian Food",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"name\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 22,
+    "fields": {
+        "action_time": "2016-12-22T14:52:57.030Z",
+        "user": 1,
+        "content_type": 17,
+        "object_id": "5",
+        "object_repr": "Latin Food",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 23,
+    "fields": {
+        "action_time": "2016-12-22T14:53:48.796Z",
+        "user": 1,
+        "content_type": 17,
+        "object_id": "1",
+        "object_repr": "Spanish Food",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"name\", \"description\", \"meta_keywords\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 24,
+    "fields": {
+        "action_time": "2016-12-22T14:53:58.253Z",
+        "user": 1,
+        "content_type": 17,
+        "object_id": "1",
+        "object_repr": "Spanish Food",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"slug\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 25,
+    "fields": {
+        "action_time": "2016-12-22T14:54:06.877Z",
+        "user": 1,
+        "content_type": 18,
+        "object_id": "6",
+        "object_repr": "Empanada",
+        "action_flag": 2,
+        "change_message": "[]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 26,
+    "fields": {
+        "action_time": "2016-12-22T14:54:12.726Z",
+        "user": 1,
+        "content_type": 18,
+        "object_id": "5",
+        "object_repr": "Paella",
+        "action_flag": 2,
+        "change_message": "[]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 27,
+    "fields": {
+        "action_time": "2016-12-22T14:54:17.891Z",
+        "user": 1,
+        "content_type": 18,
+        "object_id": "4",
+        "object_repr": "Terremoto",
+        "action_flag": 2,
+        "change_message": "[]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 28,
+    "fields": {
+        "action_time": "2016-12-22T14:54:23.582Z",
+        "user": 1,
+        "content_type": 18,
+        "object_id": "3",
+        "object_repr": "Chinese Food",
+        "action_flag": 2,
+        "change_message": "[]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 29,
+    "fields": {
+        "action_time": "2016-12-22T14:54:28.399Z",
+        "user": 1,
+        "content_type": 18,
+        "object_id": "2",
+        "object_repr": "Estofado",
+        "action_flag": 2,
+        "change_message": "[]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 30,
+    "fields": {
+        "action_time": "2016-12-22T14:54:33.425Z",
+        "user": 1,
+        "content_type": 18,
+        "object_id": "1",
+        "object_repr": "Lasa\u00f1a",
+        "action_flag": 2,
+        "change_message": "[]"
+    }
 }
-
 ]

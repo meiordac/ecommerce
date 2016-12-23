@@ -18,8 +18,8 @@ from django.conf.urls import url
 from . import views
 
 urlpatterns = [
-    # ex: /
     url(r'^$', views.index, name='index'),
+    url(r'^about/', views.about, name='about'),
     # ex: /catalog/product/lasagna/
     url(r'^product/(?P<product_slug>[-\w]+)/$', views.show_product, name='show_product'),
     # ex: /catalog/category/comida/

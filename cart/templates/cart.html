@@ -1,43 +1,43 @@
-{% extends "base.html" %}
-{% block site_wrapper %}
-<div class="table-responsive">
-  <table class="table table-bordered">
-    <thead>
-      <tr>
-        <th>Producto</th>
-        <th>Cantidad</th>
-        <th>Precio</th>
-        <th>Sub total</th>
-      </tr>
-    </thead>
-    <tbody>
+{% extends "base.html" %} {% block site_wrapper %}
+<div class="container">
+  <div class="table-responsive">
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Product</th>
+          <th>Quantity</th>
+          <th>Price</th>
+          <th>Sub total</th>
+        </tr>
+      </thead>
+      <tbody>
         {% for i in cart_items %}
         <tr>
-        <td>{{i.product.name}}</td>
-        <td>{{i.quantity}}</td>
-        <td>{{i.price}}</td>
-        <td>{{i.total}}</td>
+          <td>{{i.product.name}}</td>
+          <td>{{i.quantity}}</td>
+          <td>{{i.price}}</td>
+          <td>{{i.total}}</td>
         </tr>
         {% endfor %}
       </tbody>
-  </table>
-</div>
-<div class="row">
-  <div class="col-md-3 col-md-offset-8">
-      
-              <div class="total_area">
-            <ul class="list-group">
-                <li class="list-group-item">Sub Total <span class="pull-right"><strong>{{cart_subtotal}}</strong></span></li>
-                <li class="list-group-item">Transporte <span class="pull-right"><strong>Gratis</strong></span>
-                </li>
-                <li class="list-group-item">Total <span class="pull-right"><strong>{{cart_subtotal}}</strong></span>
-                </li>
-            </ul>
-            <a class="btn btn-primary" href="">Check Out</a>
-        </div>
+    </table>
+  </div>
+  <div class="row">
+    <div class="col-md-3 col-md-offset-8">
+
+      <div class="total_area">
+        <ul class="list-group">
+          <li class="list-group-item">Sub Total <span class="pull-right"><strong>{{cart_subtotal}}</strong></span></li>
+          <li class="list-group-item">Transportation <span class="pull-right"><strong>Free</strong></span>
+          </li>
+          <li class="list-group-item">Total <span class="pull-right"><strong>{{cart_subtotal}}</strong></span>
+          </li>
+        </ul>
+        <a class="btn btn-primary" href="">Check Out</a>
+      </div>
+
+    </div>
 
   </div>
-
-
 </div>
 {% endblock %}
