@@ -1,5 +1,5 @@
 from __future__ import unicode_literals
-
+from django.utils import timezone
 from django.db import models
 
 # Create your models here.
@@ -64,3 +64,21 @@ class Product(models.Model):
             return self.price
         else:
             return None
+
+class Comment(models.Model):
+    product = models.ForeignKey('Product', on_delete=models.CASCADE)
+    author = models.CharField(max_length=300)
+    text = models.TextField()   
+    created_date = models.DateTimeField(default=timezone.now)
+    approved_comment = models.BooleanField(default=True)
+
+    def approve(self):
+        self.approved_comment = True
+        self.save()
+
+    def unapprove(self):
+        self.approved_comment = False
+        self.save()
+
+    def __str__(self):
+        return self.text
