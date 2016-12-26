@@ -66,11 +66,12 @@ class Product(models.Model):
             return None
 
 class Comment(models.Model):
-    product = models.ForeignKey('Product', on_delete=models.CASCADE)
+    product = models.ForeignKey('Product', on_delete=models.CASCADE, related_name='comments')
     author = models.CharField(max_length=300)
-    text = models.TextField()   
+    text = models.TextField()
     created_date = models.DateTimeField(default=timezone.now)
     approved_comment = models.BooleanField(default=True)
+    stars = models.IntegerField(default=1)
 
     def approve(self):
         self.approved_comment = True

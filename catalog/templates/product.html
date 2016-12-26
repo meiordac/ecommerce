@@ -1,5 +1,5 @@
 {% extends "base.html" %} {% block site_wrapper %}
-
+{% load range %}
 <!-- Page Content -->
 <div class="container">
     <div class="thumbnail">
@@ -37,47 +37,24 @@
             <a class="btn btn-success">Leave a Review</a>
         </div>
 
+{% for comment in product.comments.all %}
         <hr>
-
         <div class="row">
-            <div class="col-md-12">
-                <span class="glyphicon glyphicon-star"></span>
-                <span class="glyphicon glyphicon-star"></span>
-                <span class="glyphicon glyphicon-star"></span>
-                <span class="glyphicon glyphicon-star"></span>
-                <span class="glyphicon glyphicon-star-empty"></span> Anonymous
-                <span class="pull-right">10 days ago</span>
-                <p>This product was great in terms of quality. I would definitely buy another!</p>
-            </div>
+    <div class="col-md-12 comment">
+        {% for star in "x"|rjust:comment.stars %}
+        <span class="glyphicon glyphicon-star"></span>
+        {% endfor %}
+        {% for c in comment.stars|range:5 %}
+        <span class="glyphicon glyphicon-star-empty"></span> 
+        {% endfor %}
+        <div class="date pull-right">{{ comment.created_date |date:"d/m/Y" }}</div>
+        <strong>{{ comment.author }}</strong>
+        <p>{{ comment.text|linebreaks }}</p>
+    </div>
         </div>
-
-        <hr>
-
-        <div class="row">
-            <div class="col-md-12">
-                <span class="glyphicon glyphicon-star"></span>
-                <span class="glyphicon glyphicon-star"></span>
-                <span class="glyphicon glyphicon-star"></span>
-                <span class="glyphicon glyphicon-star"></span>
-                <span class="glyphicon glyphicon-star-empty"></span> Anonymous
-                <span class="pull-right">12 days ago</span>
-                <p>I've alredy ordered another one!</p>
-            </div>
-        </div>
-
-        <hr>
-
-        <div class="row">
-            <div class="col-md-12">
-                <span class="glyphicon glyphicon-star"></span>
-                <span class="glyphicon glyphicon-star"></span>
-                <span class="glyphicon glyphicon-star"></span>
-                <span class="glyphicon glyphicon-star"></span>
-                <span class="glyphicon glyphicon-star-empty"></span> Anonymous
-                <span class="pull-right">15 days ago</span>
-                <p>I've seen some better than this, but not at this price. I definitely recommend this item.</p>
-            </div>
-        </div>
+{% empty %}
+    <p>No comments here yet :(</p>
+{% endfor %}
 
     </div>
 </div>
