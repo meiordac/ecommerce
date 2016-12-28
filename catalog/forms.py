@@ -15,9 +15,24 @@ class ProductAddToCartForm(forms.Form):
                 raise forms.ValidationError("Cookies must be enabled.")
         return self.cleaned_data
 
-class CommentForm(forms.ModelForm):
+class CommentForm(forms.Form):
+    text = forms.CharField(
+        widget=forms.TextInput(attrs={'class': "form-control"}),
+    )
+    stars = forms.MultipleChoiceField(
+        required=False,
+        widget=forms.RadioSelect,
+        choices=((1, 1), (2, 2), (3, 3), (4, 4), (5, 5),),
+    )
 
-    class Meta:
-        model = Comment
-        fields = ('author', 'text',)
-        
+    def save(self, commit=True):
+        data = self.cleaned_data
+        comment = Comment()
+        comment.text = data['text']
+        comment.stars = data['stars']
+        # do custom stuff
+        if commit:
+            comment.save()
+        return comment
+
+

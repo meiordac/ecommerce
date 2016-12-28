@@ -1,19 +1,18 @@
-{% extends "base.html" %} {% block site_wrapper %}
-{% load range %}
+{% extends "base.html" %} {% block site_wrapper %} {% load range %}
 <!-- Page Content -->
 <div class="container">
     <div class="thumbnail">
         <img class="featurette-image img-responsive center-block" src="{{ product.image }}">
         <div class="caption-full">
             <h4 class="pull-right">${{ product.price }}</h4>
-            <h4><a href="product/{{ p.slug }}">{{product.name}}</a>
+            <h4><a href="{% url 'show_product' product_slug=product.slug %}">{{product.name}}</a>
             </h4>
             <p>Seller: <em>{{product.brand}}</em></p>
             <p>{{ product.description}}</p>
 
             <form method="post" action="." class="cart"> {% csrf_token %} {{ form.as_p }}
 
-                <button type="submit" class="btn btn-primary" value="Add To Cart" name="submit" alt="Add To Cart"><span class="glyphicon glyphicon-shopping-cart"></span> Add to cart
+                <button type="submit" class="btn btn-primary" value="Add To Cart" name="add-cart" alt="Add To Cart"><span class="glyphicon glyphicon-shopping-cart"></span> Add to cart
                     </button>
             </form>
         </div>
@@ -33,28 +32,34 @@
     </div>
     <div class="well">
 
-        <div class="text-right">
-            <a class="btn btn-success" href="{% url 'add_comment_to_product' pk=p.slug %}">Leave a Review</a>
-        </div>
+        <form action="." method="post" class="post-form">{% csrf_token %} {{ comment_form.as_p }}
 
-{% for comment in product.comments.all %}
+            <button class="btn btn-success pull-right" name="leave-review" type="submit">Leave a Review</button>
+        </form>
+
+        {% if form.errors %} {% for field in form %} {% for error in field.errors %}
+        <div class="alert alert-danger">
+            <strong>{{ error|escape }}</strong>
+        </div>
+        {% endfor %} {% endfor %} {% for error in form.non_field_errors %}
+        <div class="alert alert-danger">
+            <strong>{{ error|escape }}</strong>
+        </div>
+        {% endfor %} {% endif %} {% for comment in product.comments.all %}
         <hr>
         <div class="row">
-    <div class="col-md-12 comment">
-        {% for star in "x"|rjust:comment.stars %}
-        <span class="glyphicon glyphicon-star"></span>
-        {% endfor %}
-        {% for c in comment.stars|range:5 %}
-        <span class="glyphicon glyphicon-star-empty"></span> 
-        {% endfor %}
-        <div class="date pull-right">{{ comment.created_date |date:"d/m/Y" }}</div>
-        <strong>{{ comment.author }}</strong>
-        <p>{{ comment.text|linebreaks }}</p>
-    </div>
+            <div class="col-md-12 comment">
+                {% for star in "x"|rjust:comment.stars %}
+                <span class="glyphicon glyphicon-star"></span> {% endfor %} {% for c in comment.stars|range:5 %}
+                <span class="glyphicon glyphicon-star-empty"></span> {% endfor %}
+                <div class="date pull-right">{{ comment.created_date |date:"d/m/Y" }}</div>
+                <strong>{{ comment.author }}</strong>
+                <p>{{ comment.text|linebreaks }}</p>
+            </div>
         </div>
-{% empty %}
-    <p>No comments here yet :(</p>
-{% endfor %}
+        {% empty %}
+        <p>No comments here yet :(</p>
+        {% endfor %}
 
     </div>
 </div>
