@@ -1,5 +1,5 @@
 {% extends "base.html" %} {% block site_wrapper %}
-
+{% load range %}
 <div class="jumbotron">
   <div class="container">
       <h1>{{ category.name }}</h1>
@@ -22,7 +22,7 @@
                         <p>{{ p.description |truncatechars:100 }}</p>
                     </div>
                     <div class="ratings">
-                        <p class="pull-right">12 reviews</p>
+                        <p class="pull-right"> {{p.comments.all.count}} reviews</p>
                         <p>
                             <span class="glyphicon glyphicon-star"></span>
                             <span class="glyphicon glyphicon-star"></span>

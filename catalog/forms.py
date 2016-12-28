@@ -1,4 +1,5 @@
 from django import forms
+from .models import Comment
  #this import should already be at the top
 class ProductAddToCartForm(forms.Form):
     quantity = forms.IntegerField(widget=forms.TextInput(attrs={'size':'2','value':'1', 'class':'quantity', 'maxlength':'5'}), error_messages={'invalid':'Please enter a valid quantity.'}, min_value=1)
@@ -13,3 +14,10 @@ class ProductAddToCartForm(forms.Form):
             if not self.request.session.test_cookie_worked():
                 raise forms.ValidationError("Cookies must be enabled.")
         return self.cleaned_data
+
+class CommentForm(forms.ModelForm):
+
+    class Meta:
+        model = Comment
+        fields = ('author', 'text',)
+        

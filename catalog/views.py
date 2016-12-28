@@ -1,15 +1,12 @@
 from django.core import urlresolvers
-from django.shortcuts import get_object_or_404, render
-from django.http import HttpResponse
-from django.template import loader
+from django.shortcuts import get_object_or_404, render, redirect
 from django.http import HttpResponseRedirect
-from cart.forms import ProductAddToCartForm
 
 from cart import cart
+from cart.forms import ProductAddToCartForm
+from .forms import CommentForm
 
-from .models import Product
-from .models import Category
-
+from .models import Product, Category, Comment
 
 def index(request):
     products = Product.objects.all()
@@ -29,6 +26,23 @@ def show_category(request, category_slug):
     categories = Category.objects.all()
     context = {'category': category, 'products': products, 'categories' : categories}
     return render(request, 'category.html', context)
+
+def add_comment_to_product(request, product_slug):
+    """ adds a comment to a product """
+    product = get_object_or_404(Product, slug=product_slug)
+    if request.method == "POST":
+        form = CommentForm(request.POST)
+        if form.is_valid():
+            comment = form.save(commit=False)
+            comment.product = product
+            comment.author = request.user.name
+            comment.save()
+            return redirect('show_product', product_slug=product_slug)
+
+    else:
+        form = CommentForm()
+        return redirect('show_product', product_slug=product_slug)
+
 
 def show_product(request, product_slug):
     """ View that returns a specific product """

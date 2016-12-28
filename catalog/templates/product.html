@@ -34,7 +34,7 @@
     <div class="well">
 
         <div class="text-right">
-            <a class="btn btn-success">Leave a Review</a>
+            <a class="btn btn-success" href="{% url 'add_comment_to_product' pk=p.slug %}">Leave a Review</a>
         </div>
 
 {% for comment in product.comments.all %}

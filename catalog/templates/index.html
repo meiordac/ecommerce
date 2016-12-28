@@ -1,4 +1,5 @@
 {% extends "base.html" %} {% block site_wrapper %}
+{% load staticfiles %}
 <div class="row carousel-holder">
 
     <div class="col-md-12">
@@ -10,13 +11,13 @@
             </ol>
             <div class="carousel-inner">
                 <div class="item active foodimg">                 
-                    <img class="foodimg" src="http://www.limonymar.cl/img/banner1.jpg" alt="...">                
+                    <img class="foodimg" src="{% static 'images/banner1.jpg' %}" alt="banner 1">                
                 </div>
                 <div class="item foodimg">
-                   <img class="foodimg" src="http://www.limonymar.cl/img/banner2.jpg" alt="...">
+                   <img class="foodimg" src="{% static 'images/banner2.jpg' %}" alt="banner 2">
                 </div>
                 <div class="item foodimg">
-                    <img class="foodimg" src="http://suitelife.com/blog/wp-content/uploads/2015/08/327013.jpg" alt="...">
+                    <img class="foodimg" src="{% static 'images/banner3.jpg' %}" alt="banner 3">
                 </div>
             </div>
             <a class="left carousel-control" href="#carousel-foods" data-slide="prev">
@@ -43,7 +44,7 @@
                     <p>{{ p.description |truncatechars:100 }}</p>
                 </div>
                 <div class="ratings">
-                    <p class="pull-right">12 reviews</p>
+                    <p class="pull-right">{{p.comments.all.count}} reviews</p>
                     <p>
                         <span class="glyphicon glyphicon-star"></span>
                         <span class="glyphicon glyphicon-star"></span>
