@@ -40,40 +40,41 @@ def add_comment_to_product(request, product_slug):
             comment.save()
             return redirect('show_product', product_slug=product_slug)
 
+def add_to_cart(request, product_slug):
+    """ adds a product to cart """
+    # add to cart...create the bound form
+    postdata = request.POST.copy()
+    form = ProductAddToCartForm(request, postdata)
+    #check if posted data is valid
+    if form.is_valid():
+        #add to cart and redirect to cart page
+        cart.add_to_cart(request)
+    # if test cookie worked, get rid of it
+    if request.session.test_cookie_worked():
+        request.session.delete_test_cookie()
+    url = urlresolvers.reverse('show_cart')
+
+    return HttpResponseRedirect(url)
+
 
 
 def show_product(request, product_slug):
     """ View that returns a specific product """
     product = get_object_or_404(Product, slug=product_slug)
-    #categories=product.categories.filter(is_active=True)
     categories = Category.objects.all()
-    # need to evaluate the HTTP method
     if request.method == 'POST' and 'add-cart' in request.POST:
-        # add to cart...create the bound form
-        postdata = request.POST.copy()
-        form = ProductAddToCartForm(request, postdata)
-        #check if posted data is valid
-        if form.is_valid():
-            #add to cart and redirect to cart page
-            cart.add_to_cart(request)
-        # if test cookie worked, get rid of it
-        if request.session.test_cookie_worked():
-            request.session.delete_test_cookie()
-        url = urlresolvers.reverse('show_cart')
-
-        return HttpResponseRedirect(url)
+        add_to_cart(request, product_slug)
 
     if request.method == 'POST' and 'leave-review' in request.POST:
         add_comment_to_product(request, product_slug)
-    # it is a GET, create the unbound form. Note request as a kwarg
+
     form = ProductAddToCartForm(request=request, label_suffix=':')
     # assign the hidden input the product slug
     form.fields['product_slug'].widget.attrs['value'] = product_slug
     # set the test cookie on our first GET request
     request.session.set_test_cookie()
     comment_form = CommentForm()
-    total = len(product.comments.all())
-    average_stars = int(sum(c.stars for c in product.comments.all()) / total)
+
     context = {'categories': categories, 'product': product, 'form':form,
-               'comment_form':comment_form, 'average_stars':average_stars}
+               'comment_form':comment_form}
     return render(request, 'product.html', context)

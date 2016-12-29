@@ -20,9 +20,9 @@
         <div class="ratings">
             <p class="pull-right">{{product.comments.all.count}} reviews</p>
             <p>
-                {% for star in "x"|range:average_stars %}
-                <span class="glyphicon glyphicon-star"></span> {% endfor %} {% for c in average_stars|range:5 %}
-                <span class="glyphicon glyphicon-star-empty"></span> {% endfor %} {{average_stars}} stars
+                {% for star in "x"|range:product.average_stars %}
+                <span class="glyphicon glyphicon-star"></span> {% endfor %} {% for c in product.average_stars|range:5 %}
+                <span class="glyphicon glyphicon-star-empty"></span> {% endfor %} {{product.average_stars}} stars
 
             </p>
         </div>
