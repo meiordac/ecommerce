@@ -17,9 +17,9 @@ class ProductAddToCartForm(forms.Form):
 
 class CommentForm(forms.Form):
     text = forms.CharField(
-        widget=forms.TextInput(attrs={'class': "form-control"}),
+        widget=forms.Textarea(attrs={'class': "form-control", 'rows': "2", }),
     )
-    stars = forms.MultipleChoiceField(
+    stars = forms.ChoiceField(
         required=False,
         widget=forms.RadioSelect,
         choices=((1, 1), (2, 2), (3, 3), (4, 4), (5, 5),),

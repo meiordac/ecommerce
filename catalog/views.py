@@ -32,11 +32,13 @@ def add_comment_to_product(request, product_slug):
     product = get_object_or_404(Product, slug=product_slug)
     if request.method == "POST":
         form = CommentForm(request.POST)
-        comment = form.save(commit=False)
-        comment.product = product
-        comment.author = request.user.username
-        comment.save()
-        return redirect('show_product', product_slug=product_slug)
+        print form.errors
+        if form.is_valid():
+            comment = form.save(commit=False)
+            comment.product = product
+            comment.author = request.user.username
+            comment.save()
+            return redirect('show_product', product_slug=product_slug)
 
 
 
@@ -70,6 +72,8 @@ def show_product(request, product_slug):
     # set the test cookie on our first GET request
     request.session.set_test_cookie()
     comment_form = CommentForm()
-
-    context = {'categories': categories, 'product': product, 'form':form, 'comment_form':comment_form}
+    total = len(product.comments.all())
+    average_stars = int(sum(c.stars for c in product.comments.all()) / total)
+    context = {'categories': categories, 'product': product, 'form':form,
+               'comment_form':comment_form, 'average_stars':average_stars}
     return render(request, 'product.html', context)

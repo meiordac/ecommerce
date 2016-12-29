@@ -65,6 +65,14 @@ class Product(models.Model):
         else:
             return None
 
+    def average_stars(self):
+        """ returns sales price in case there is a discount """
+        total = len(self.comments.all())
+        if total==0:
+            return 1
+        average_stars = int(sum(c.stars for c in self.comments.all()) / total)
+        return average_stars
+
 class Comment(models.Model):
     product = models.ForeignKey('Product', on_delete=models.CASCADE, related_name='comments')
     author = models.CharField(max_length=300)
