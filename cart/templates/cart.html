@@ -1,43 +1,78 @@
 {% extends "base.html" %} {% block site_wrapper %}
 <div class="container">
-  <div class="table-responsive">
-    <table class="table table-bordered">
-      <thead>
-        <tr>
-          <th>Product</th>
-          <th>Quantity</th>
-          <th>Price</th>
-          <th>Sub total</th>
-        </tr>
-      </thead>
-      <tbody>
-        {% for i in cart_items %}
-        <tr>
-          <td>{{i.product.name}}</td>
-          <td>{{i.quantity}}</td>
-          <td>{{i.price}}</td>
-          <td>{{i.total}}</td>
-        </tr>
-        {% endfor %}
-      </tbody>
-    </table>
-  </div>
   <div class="row">
-    <div class="col-md-3 col-md-offset-8">
 
-      <div class="total_area">
-        <ul class="list-group">
-          <li class="list-group-item">Sub Total <span class="pull-right"><strong>{{cart_subtotal}}</strong></span></li>
-          <li class="list-group-item">Transportation <span class="pull-right"><strong>Free</strong></span>
-          </li>
-          <li class="list-group-item">Total <span class="pull-right"><strong>{{cart_subtotal}}</strong></span>
-          </li>
-        </ul>
-        <a class="btn btn-primary" href="">Check Out</a>
+    <div class="panel panel-info">
+      <div class="panel-heading">
+        <div class="panel-title">
+          <div class="row">
+            <div class="col-xs-6">
+              <h5><span class="glyphicon glyphicon-shopping-cart"></span> Shopping Cart</h5>
+            </div>
+            <div class="col-xs-6">
+              <button type="button" class="btn btn-primary btn-sm btn-block">
+									<span class="glyphicon glyphicon-share-alt"></span> Continue shopping
+								</button>
+            </div>
+          </div>
+        </div>
       </div>
+      <div class="panel-body">
 
+        {% for i in cart_items %}
+        <div class="row">
+          <div class="col-xs-2"><img class="img-responsive" src="{{i.product.image}}">
+          </div>
+          <div class="col-xs-4">
+            <h4 class="product-name"><strong>{{i.product.name}}</strong></h4>
+            <h4><small>{{i.product.description|truncatechars:100}}</small></h4>
+          </div>
+          <div class="col-xs-6">
+            <div class="col-xs-6 text-right">
+              <h6><strong>{{i.price}} <span class="text-muted">x</span></strong></h6>
+            </div>
+            <div class="col-xs-4">
+              <input type="text" class="form-control input-sm" value="{{i.quantity}}">
+            </div>
+            <div class="col-xs-2">
+              <button type="button" class="btn btn-link btn-xs">
+									<span class="glyphicon glyphicon-trash"> </span>
+								</button>
+            </div>
+          </div>
+        </div>
+        <hr> {% endfor %}
+
+        <div class="row">
+          <div class="text-center">
+            <div class="col-xs-9">
+              <h6 class="text-right">Added items?</h6>
+            </div>
+            <div class="col-xs-3">
+              <button type="button" class="btn btn-default btn-sm btn-block">
+									Update cart
+								</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="panel-footer">
+        <div class="row text-center">
+          <div class="col-xs-9">
+            <h4 class="text-right">Total <strong>{{cart_subtotal}}</strong></h4>
+          </div>
+          <div class="col-xs-3">
+            <button type="button" class="btn btn-success btn-block">
+								Checkout
+							</button>
+          </div>
+        </div>
+      </div>
     </div>
-
   </div>
 </div>
+
+
+
+
 {% endblock %}
