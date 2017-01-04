@@ -40,7 +40,7 @@ def add_comment_to_product(request, product_slug):
             comment.save()
             return redirect('show_product', product_slug=product_slug)
 
-def add_to_cart(request, product_slug):
+def add_to_cart(request):
     """ adds a product to cart """
     # add to cart...create the bound form
     postdata = request.POST.copy()
@@ -52,20 +52,19 @@ def add_to_cart(request, product_slug):
     # if test cookie worked, get rid of it
     if request.session.test_cookie_worked():
         request.session.delete_test_cookie()
-    url = urlresolvers.reverse('show_cart')
-
-    return HttpResponseRedirect(url)
+    print redirect('cart.views.show_cart')
+    return redirect('cart.views.show_cart')
 
 
 
 def show_product(request, product_slug):
     """ View that returns a specific product """
     product = get_object_or_404(Product, slug=product_slug)
-    categories = Category.objects.all()
-    if request.method == 'POST' and 'add-cart' in request.POST:
-        add_to_cart(request, product_slug)
 
-    if request.method == 'POST' and 'leave-review' in request.POST:
+    if request.method == 'POST' and 'add-cart' in request.POST:
+        add_to_cart(request)
+
+    elif request.method == 'POST' and 'leave-review' in request.POST:
         add_comment_to_product(request, product_slug)
 
     form = ProductAddToCartForm(request=request, label_suffix=':')
@@ -75,6 +74,20 @@ def show_product(request, product_slug):
     request.session.set_test_cookie()
     comment_form = CommentForm()
 
+    categories = Category.objects.all()
     context = {'categories': categories, 'product': product, 'form':form,
                'comment_form':comment_form}
     return render(request, 'product.html', context)
+
+def search(request):
+    """ Makes a search and returns all objects with certain pattern """
+    query = request.GET.get('srch-term')
+    allproducts = Product.objects.all()
+    products = []
+    for product in allproducts:
+        if query.lower() in product.name.lower():
+            products.append(product)
+
+    categories = Category.objects.all()
+    context = {'products': products, 'categories' : categories, 'query' : query}
+    return render(request, 'search.html', context)

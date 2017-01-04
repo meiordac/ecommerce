@@ -44,7 +44,7 @@
 
           <ul class="nav navbar-nav navbar-right">
             <li>
-              <form class="navbar-form" role="search">
+              <form action="{% url 'search' %}" method="get" class="navbar-form" role="search">
                 <div class="input-group">
                   <input type="text" class="form-control" placeholder="Search" name="srch-term" id="srch-term">
                   <div class="input-group-btn">
@@ -70,11 +70,11 @@
     <ul class="nav nav-pills">
       {% for c in categories %}
       <li role="presentation">
-        <a href="/category/{{ c.slug }}">{{ c.name }}</a> </li> {% endfor %}
+        <a href="{% url 'show_category' category_slug=c.slug %}">{{ c.name }}</a> </li> {% endfor %}
 
       <li class="presentation pull-right">
         {% if user.is_authenticated %}
-        <p> Hello {{ user.username }}. <a href="{% url 'logout' %}">Logout</a></p>
+        <p> Hello {{ user.username }}, <a href="{% url 'logout' %}">Logout</a></p>
         {% else %}
         <a href="{% url 'login' %}">Login</a>
         {% endif %}
