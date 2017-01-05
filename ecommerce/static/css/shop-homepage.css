@@ -104,11 +104,16 @@ Image credits: unsplash.com
 }
 
 .glyphicon { margin-right:5px; }
-.thumbnail
+
+ .animated {
+    -webkit-transition: height 0.2s;
+    -moz-transition: height 0.2s;
+    transition: height 0.2s;
+}
+
+.stars
 {
-    margin-bottom: 20px;
-    padding: 0px;
-    -webkit-border-radius: 0px;
-    -moz-border-radius: 0px;
-    border-radius: 0px;
+    margin: 20px 0;
+    font-size: 24px;
+    color: #d17581;
 }

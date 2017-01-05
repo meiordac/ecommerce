@@ -2,6 +2,7 @@ from django.core import urlresolvers
 from django.shortcuts import get_object_or_404, render, redirect
 from django.http import HttpResponseRedirect
 
+from .models import Comment
 from cart import cart
 from cart.forms import ProductAddToCartForm
 from .forms import CommentForm
@@ -30,15 +31,14 @@ def show_category(request, category_slug):
 def add_comment_to_product(request, product_slug):
     """ adds a comment to a product """
     product = get_object_or_404(Product, slug=product_slug)
-    if request.method == "POST":
-        form = CommentForm(request.POST)
-        print form.errors
-        if form.is_valid():
-            comment = form.save(commit=False)
-            comment.product = product
-            comment.author = request.user.username
-            comment.save()
-            return redirect('show_product', product_slug=product_slug)
+    comment = Comment()
+    print request.POST
+    comment.text = request.POST.get('text')
+    comment.stars = request.POST.get('stars')
+    comment.product = product
+    comment.author = request.user.username
+    comment.save()
+    return redirect('show_product', product_slug=product_slug)
 
 def add_to_cart(request):
     """ adds a product to cart """
