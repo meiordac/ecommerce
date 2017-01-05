@@ -103,25 +103,12 @@ Image credits: unsplash.com
   background-repeat: no-repeat;
 }
 
-  .rating {
-      overflow: hidden;
-      display: inline-block;
-  }
-  .rating-input {
-      float: right;
-      width: 16px;
-      height: 16px;
-      padding: 0;
-      margin: 0 0 0 -16px;
-      opacity: 0;
-  }
-  .rating-star {
-      display: block;
-      width: 16px;
-      height: 16px;
-      font-family: "Glyphicons Halflings";
-      content: "\e080";
-  }
-  .rating-star:hover {
-      background-position: 0 0;
-  }
+.glyphicon { margin-right:5px; }
+.thumbnail
+{
+    margin-bottom: 20px;
+    padding: 0px;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    border-radius: 0px;
+}
