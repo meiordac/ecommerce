@@ -20,6 +20,11 @@ def about(request):
     context = {}
     return render(request, 'about.html', context)
 
+def contact(request):
+    """ Returns the contact view """
+    context = {}
+    return render(request, 'contact.html', context)
+
 def show_category(request, category_slug):
     """ View that returns a specific category """
     category = get_object_or_404(Category, slug=category_slug)
@@ -32,7 +37,6 @@ def add_comment_to_product(request, product_slug):
     """ adds a comment to a product """
     product = get_object_or_404(Product, slug=product_slug)
     comment = Comment()
-    print request.POST
     comment.text = request.POST.get('text')
     comment.stars = request.POST.get('stars')
     comment.product = product

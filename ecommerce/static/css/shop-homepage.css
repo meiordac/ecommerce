@@ -30,10 +30,6 @@ body {
     white-space: nowrap;
 }
 
-.thumbnail img {
-    width: 100%;
-}
-
 .ratings {
     padding-right: 10px;
     padding-left: 10px;
@@ -49,6 +45,11 @@ body {
     color: #333;
 }
 
+.thumbnail img.products{ 
+    min-height:250px;    
+    max-height:250px;
+    width:100%; }
+
 /*
 Fade content bs-carousel with hero headers
 Code snippet by maridlcrmn (Follow me on Twitter @maridlcrmn) for Bootsnipp.com
@@ -58,12 +59,25 @@ Image credits: unsplash.com
 /********************************/
 /*       Fade Bs-carousel       */
 /********************************/
+
+/* Makes images fully responsive */
+
+.img-responsive,
+.thumbnail > img,
+.thumbnail a > img,
+.carousel-inner > .item > img,
+.carousel-inner > .item > a > img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+
 .carousel {
-    position: relative;
-    height: 100vh;
+    height: 80vh;
 }
 .carousel .carousel-inner .item {
-    height: 100vh;
+    height: 80vh;
 }
 .carousel .carousel-indicators > li {
     margin: 0 2px;

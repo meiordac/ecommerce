@@ -1,15 +1,39 @@
-{% extends "base.html" %} {% block site_wrapper %}
+{% extends "base.html" %} {% block site_wrapper %} {% load staticfiles %}
 
-<div class="jumbotron">
-  <div class="container">
-      <h1>About Us</h1>
+<!-- Page Content -->
+<div class="container">
+
+  <!-- Introduction Row -->
+  <div class="row">
+    <div class="col-lg-12">
+      <h1 class="page-header">About Us
+        <small>It's Nice to Meet You!</small>
+      </h1>
       <p>
-      Basically the idea is to generate a software as a service in food cooking and delivery. We want to take advantage of the concepts of share economy and existing technology to create a platform where local people (basically neighbors) chosen by us and who meet certain health standards can offer food throws people / companies around.
+        Basically the idea is to generate a software as a service in food cooking and delivery. We want to take advantage of the
+        concepts of share economy and existing technology to create a platform where local people (basically neighbors) chosen
+        by us and who meet certain health standards can offer food throws people / companies around.
       </p>
       <p>
-      For this, we want to design a replicable micro-logistics chain within each community in Santiago to generate the transactions. Both customer orders, payments and evaluations would be done online. The idea is to generate income sources for middle-class / middle-low housewives offering home-made, quality, and healthy food. All this in addition to promoting a balanced diet among our customers.
+        For this, we want to design a replicable micro-logistics chain within each community in Santiago to generate the transactions.
+        Both customer orders, payments and evaluations would be done online. The idea is to generate income sources for middle-class
+        / middle-low housewives offering home-made, quality, and healthy food. All this in addition to promoting a balanced
+        diet among our customers.
       </p>
+    </div>
   </div>
-</div>
 
-{% endblock %}
+  <!-- Team Members Row -->
+  <div class="row">
+      <h2 class="page-header">Developer</h2>
+      <div class="col-sm-2">
+      <img class="img-circle img-responsive img-center" src="{% static 'images/avatar.jpg' %}"  alt="">
+      </div>
+      <h3>Matias Iordache
+        <small>Software Engineer</small>
+      </h3>
+      <p>I have experience working in different projects developing new software solutions. I work mainly with .NET, JavaScript, SQL, Python, Ruby, etc. I spend my free time travelling and studying German.</p>
+    </div>
+  </div>
+
+  <hr> {% endblock %}

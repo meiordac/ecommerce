@@ -1,4 +1,7 @@
 {% extends "base.html" %} {% block site_wrapper %} {% load range %} {% load staticfiles %}
+
+
+
 <div class="row carousel-holder">
 
     <div class="col-md-12">
@@ -10,13 +13,13 @@
             </ol>
             <div class="carousel-inner">
                 <div class="item active foodimg">
-                    <img class="foodimg" src="{% static 'images/banner1.jpg' %}" alt="banner 1">
+                    <img class="img-responsive" src="{% static 'images/banner1.jpg' %}" alt="banner 1">
                 </div>
                 <div class="item foodimg">
-                    <img class="foodimg" src="{% static 'images/banner2.jpg' %}" alt="banner 2">
+                    <img class="img-responsive" src="{% static 'images/banner2.jpg' %}" alt="banner 2">
                 </div>
                 <div class="item foodimg">
-                    <img class="foodimg" src="{% static 'images/banner3.jpg' %}" alt="banner 3">
+                    <img class="img-responsive" src="{% static 'images/banner3.jpg' %}" alt="banner 3">
                 </div>
             </div>
             <a class="left carousel-control" href="#carousel-foods" data-slide="prev">
@@ -35,7 +38,7 @@
     {% for p in products|dictsort:"name"|slice:":6" %}
     <div class="col-sm-4 col-lg-4 col-md-4">
         <div class="thumbnail">
-            <img class="featurette-image img-responsive center-block" src="{{ p.image }}">
+            <img class="featurette-image img-responsive center-block products" src="{{ p.image }}">
             <div class="caption">
                 <h4 class="pull-right">${{ p.price }}</h4>
                 <h4><a href="{% url 'show_product' product_slug=p.slug %}">{{ p.name }}</a>
