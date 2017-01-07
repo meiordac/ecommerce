@@ -14,3 +14,12 @@ def show_cart(request):
 def destroy(request, product_slug):
     cart.remove_from_cart(request, product_slug)
     return redirect('show_cart')
+
+def show_checkout(request):
+    cart_items = cart.get_cart_items(request)
+    cart_subtotal = cart.cart_subtotal(request)
+    categories = Category.objects.all()
+    context = {'cart_items':cart_items,
+               'cart_subtotal':cart_subtotal,
+               'categories':categories}
+    return render(request, 'checkout.html', context)

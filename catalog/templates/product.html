@@ -1,38 +1,51 @@
 {% extends "base.html" %} {% block site_wrapper %} {% load static %} {% load range %}
 <!-- Page Content -->
-<div class="container">
-    <div class="thumbnail">
-        <img class="featurette-image img-responsive center-block" src="{{ product.image }}">
-        <div class="caption-full">
-            <h4 class="pull-right">${{ product.price }}</h4>
-            <h4><a href="{% url 'show_product' product_slug=product.slug %}">{{product.name}}</a>
-            </h4>
-            <p>Seller: <em>{{product.brand}}</em></p>
-            <p>{{ product.description}}</p>
 
-            <form method="post" action="." class="form-inline"> {% csrf_token %}
-                <div class="form-group">
-                    {{ form.as_p }}
-                </div>
-                <button type="submit" class="btn btn-primary pull-right" value="Add To Cart" name="add-cart" alt="Add To Cart"><span class="glyphicon glyphicon-shopping-cart"></span> Add to cart
+<div class="container" id="product-section">
+    <div class="row">
+            <div class="col-md-6">
+                <img class="featurette-image img-responsive center-block img-rounded" src="{{ product.image }}">
+            </div>
+            <div class="col-md-6">
+                <div class="caption-full">
+                    <h4 class="pull-right">${{ product.price }}</h4>
+                    <h4><a href="{% url 'show_product' product_slug=product.slug %}">{{product.name}}</a>
+                    </h4>
+                    <p>Seller: <em>{{product.brand}}</em></p>
+                    <p>{{ product.description}}</p>
+
+                    <form method="post" action="." class="form-inline"> {% csrf_token %}
+                        <div class="form-group">
+                            {{ form.as_p }}
+                        </div>
+                        <button type="submit" class="btn btn-primary pull-right" value="Add To Cart" name="add-cart" alt="Add To Cart"><span class="glyphicon glyphicon-shopping-cart"></span> Add to cart
                     </button>
 
 
-            </form>
-        </div>
-        <br />
-        <div class="ratings">
-            <p class="pull-right">{{product.comments.all.count}} reviews</p>
-            <p>
-                {% for star in 0|range:product.average_stars %}
-                <span class="glyphicon glyphicon-star"></span> {% endfor %} {% for c in product.average_stars|range:5 %}
-                <span class="glyphicon glyphicon-star-empty"></span> {% endfor %} {{product.average_stars}} stars
+                    </form>
+                </div>
 
-            </p>
-        </div>
+                <br />
+                <div class="ratings">
+                    <p class="pull-right">{{product.comments.all.count}} reviews</p>
+                    <p>
+                        {% for star in 0|range:product.average_stars %}
+                        <span class="glyphicon glyphicon-star"></span> 
+                        {% endfor %} 
+                        {% for c in product.average_stars|range:5 %}
+                        <span class="glyphicon glyphicon-star-empty"></span> 
+                        {% endfor %} 
+                        {{product.average_stars}} stars
 
-        <div class="cb"></div>
+                    </p>
+                </div>
+            </div>
     </div>
+    <!-- end row -->
+</div>
+<!-- end container -->
+
+<div class="container">
     <div class="well">
 
 
@@ -79,11 +92,16 @@
 
             </div>
         </div>
-        {% empty %} {% endfor %}
+        
+        {% empty %} 
+        No comments
+        {% endfor %}
 
     </div>
 </div>
 
-{% endblock %} {% block scripts %} {{ block.super }}
+{% endblock %} 
+{% block scripts %} 
+{{ block.super }}
 <script src="{% static 'js/review.js' %}"></script>
 {% endblock %}

@@ -18,5 +18,6 @@ from . import views
 
 urlpatterns = [
     url(r'^$', views.show_cart, name='show_cart'),
+    url(r'^checkout/$', views.show_checkout, name='show_checkout'),
     url(r'^destroy/(?P<product_slug>[-\w]+)/$', views.destroy, name='destroy'),
     ]
