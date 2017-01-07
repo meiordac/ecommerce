@@ -35,6 +35,15 @@ def add_to_cart(request):
         cartitem.cart_session = request.session.session_key
         cartitem.save()
 
+
+def remove_from_cart(request, product_slug):
+    """ removes an item to the cart """
+    product = get_object_or_404(Product, slug=product_slug)
+    cart_products = get_cart_items(request)
+    for cart_item in cart_products:
+        if cart_item.product.id == product.id:
+            cart_item.delete()
+
 def cart_distinct_item_count(request):
     """ returns the total number of items in the user's cart """
     return get_cart_items(request).count()

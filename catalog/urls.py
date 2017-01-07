@@ -21,6 +21,7 @@ urlpatterns = [
     url(r'^$', views.index, name='index'),
     url(r'^about/', views.about, name='about'),
     url(r'^contact/', views.contact, name='contact'),
+    url(r'^services/', views.services, name='services'),
     # ex: /catalog/product/lasagna/
     url(r'^product/(?P<product_slug>[-\w]+)/$', views.show_product, name='show_product'),
     url(r'^product/(?P<product_slug>[-\w]+)/comment/$', views.add_comment_to_product, name='add_comment_to_product'),

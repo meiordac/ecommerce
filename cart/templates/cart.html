@@ -29,9 +29,9 @@
               <input type="text" class="form-control input-sm" value="{{i.quantity}}">
             </div>
             <div class="col-xs-2">
-              <button type="button" class="btn btn-link btn-xs">
+              <a type="button" class="btn btn-link btn-xs" href="{% url 'destroy' product_slug=i.product.slug %}">
 									<span class="glyphicon glyphicon-trash"> </span>
-								</button>
+								</a>
             </div>
           </div>
         </div>

@@ -17,6 +17,6 @@ from django.conf.urls import url
 from . import views
 
 urlpatterns = [
-    # ex: /
-    url(r'^$', views.show_cart, name='show_cart')
+    url(r'^$', views.show_cart, name='show_cart'),
+    url(r'^destroy/(?P<product_slug>[-\w]+)/$', views.destroy, name='destroy'),
     ]

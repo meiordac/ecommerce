@@ -25,6 +25,11 @@ def contact(request):
     context = {}
     return render(request, 'contact.html', context)
 
+def services(request):
+    """ Returns the services view """
+    context = {}
+    return render(request, 'services.html', context)
+
 def show_category(request, category_slug):
     """ View that returns a specific category """
     category = get_object_or_404(Category, slug=category_slug)
