@@ -67,22 +67,26 @@
       </div>
     </nav>
   </div>
-  <!-- Page Content -->
-  <div class="container-fluid">
-    <ul class="nav nav-pills">
+
+<nav class="navbar navbar-default navbar-lower" role="navigation">
+  <div class="container">
+    <div class="collapse navbar-collapse collapse-buttons">
+    <ul class="nav navbar-nav">
       {% for c in categories %}
       <li role="presentation">
         <a href="{% url 'show_category' category_slug=c.slug %}">{{ c.name }}</a> </li> {% endfor %}
-
-      <li class="presentation pull-right">
-        {% if user.is_authenticated %}
-        <p> Hello {{ user.username }}, <a href="{% url 'logout' %}">Logout</a></p>
-        {% else %}
-        <a href="{% url 'login' %}">Login</a>
-        {% endif %}
-      </li>
     </ul>
+        {% if user.is_authenticated %}
+        <p class="navbar-text navbar-right"> Hello {{ user.username }}, <a href="{% url 'logout' %}" class="navbar-link">Logout</a></p>
+        {% else %}
+        <a href="{% url 'login' %}" class="navbar-link">Login</a>
+        {% endif %}
+    </div>
+  </div>
+</nav>
 
+  <!-- Page Content -->
+  <div class="container-fluid">
     {% block site_wrapper %} {% endblock %}
   </div>
 
